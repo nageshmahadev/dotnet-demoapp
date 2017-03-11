@@ -1,0 +1,33 @@
+{
+  "volumes": null,
+  "id": "/demoapp",
+  "cpus": 0.25,
+  "mem": 128,  
+  "maxLaunchDelaySeconds": 3600,
+  "container": {
+    "docker": {
+      "image": "bencuk/dotnetdemo",
+      "forcePullImage": true,
+      "privileged": false,
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "protocol": "tcp"
+        }
+      ],
+      "network": "BRIDGE"
+    }
+  },
+  "labels": {
+    "DCOS_SERVICE_SCHEME": "http",
+    "DCOS_SERVICE_NAME": "demoapp",
+    "DCOS_SERVICE_PORT_INDEX": "0"
+  },
+  "healthChecks": [
+    {
+        "portIndex": 0,
+        "protocol": "TCP",
+        "intervalSeconds": 30
+    }
+  ]
+}

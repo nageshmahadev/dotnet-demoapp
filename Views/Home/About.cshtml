@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>This is a simple .NET Core MVC template application. Minor modifications have been made to enable it to run inside a Docker container</p>
+
+<ul>
+    <li>Running on host: <b>@ViewBag.host</b></li>
+    <li>IP Address: <b>@ViewBag.ip</b></li>
+    <li>Operating system: <b>@ViewBag.os</b></li>
+    <li>Processors: <b>@ViewBag.procs (@ViewBag.arch)</b></li>
+    <li>Framework: <b>@ViewBag.frame</b></li>
+
+</ul>
