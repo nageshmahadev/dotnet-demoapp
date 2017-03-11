@@ -4,7 +4,7 @@ Based on the standard .NET Core template (`dotnet new mvc`). Kestrel is set to l
 
 Some minor cosmetic modifications to the basic templated app, but otherwise it's pretty much as it comes. The 'About' page should display some system information (OS, platform, IP address etc)
 
-<img src="https://cloud.githubusercontent.com/assets/14982936/23825336/a56145f4-067f-11e7-9f7f-d6f806f9976d.png" alt="screenshot" style="width: 800px;"/>
+<img src="https://cloud.githubusercontent.com/assets/14982936/23825441/d116c230-0681-11e7-81a8-4c2daf7edd14.png" alt="screenshot" style="width: 800px;"/>
 
 ## Dockerfile Notes
 
