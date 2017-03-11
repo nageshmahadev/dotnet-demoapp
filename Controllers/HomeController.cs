@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
+using DotnetDemoApp.ViewModels;
 
 namespace DotnetDemoApp.Controllers
 {
@@ -15,19 +16,20 @@ namespace DotnetDemoApp.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-            
-            ViewBag.container = (System.IO.File.Exists("/.dockerenv")) ? "Docker" : "Regular process";
-            ViewBag.host = Environment.MachineName;
-            ViewBag.os = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
-            ViewBag.procs = Environment.ProcessorCount;
-            ViewBag.arch = System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture;
-            ViewBag.frame = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+            ViewData["Message"] = "Demo App - description page.";
+            HomeAboutViewModel model = new HomeAboutViewModel();
+
+            model.container = (System.IO.File.Exists("/.dockerenv")) ? "Docker" : "Regular process";
+            model.host = Environment.MachineName;
+            model.os = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
+            model.procs = Environment.ProcessorCount.ToString();
+            model.arch = System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture.ToString();
+            model.framework = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
 
             var httpConnectionFeature = this.ControllerContext.HttpContext.Features.Get<IHttpConnectionFeature>();
-            ViewBag.ip = httpConnectionFeature?.LocalIpAddress;
+            model.ip = httpConnectionFeature?.LocalIpAddress.ToString();
 
-            return View();
+            return View(model);
         }
 
         public IActionResult Contact()
