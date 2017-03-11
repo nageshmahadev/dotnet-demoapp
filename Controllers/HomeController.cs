@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +8,8 @@ namespace DotnetDemoApp.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.whereami = (System.IO.File.Exists("/.dockerenv")) ? "I am running in a Docker container!" : "I am not running in Docker :(";
+
             return View();
         }
 
@@ -18,6 +17,7 @@ namespace DotnetDemoApp.Controllers
         {
             ViewData["Message"] = "Your application description page.";
             
+            ViewBag.container = (System.IO.File.Exists("/.dockerenv")) ? "Docker" : "Regular process";
             ViewBag.host = Environment.MachineName;
             ViewBag.os = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
             ViewBag.procs = Environment.ProcessorCount;
