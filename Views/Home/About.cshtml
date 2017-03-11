@@ -1,17 +1,18 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
+@model DotnetDemoApp.ViewModels.HomeAboutViewModel
+
 <h2>@ViewData["Title"].</h2>
 <h3>@ViewData["Message"]</h3>
 
-<p>This is a simple .NET Core MVC template application. Minor modifications have been made to enable it to run inside a Docker container</p>
+<p style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">This is a simple .NET Core MVC application. Based on the default SDK template, some minor modifications have been made to enable it to run inside a Docker container</p>
 
-<ul>
-    <li>Running on host: <b>@ViewBag.host</b></li>
-    <li>Container: <b>@ViewBag.container</b></li>
-    <li>IP Address: <b>@ViewBag.ip</b></li>
-    <li>Operating system: <b>@ViewBag.os</b></li>
-    <li>Processors: <b>@ViewBag.procs (@ViewBag.arch)</b></li>
-    <li>Framework: <b>@ViewBag.frame</b></li>
-
+<ul style="background-color: rgba(0, 0, 0, 0.5); padding: 30px;">
+    <li>Running on host: <b>@Model.host</b></li>
+    <li>Container: <b>@Model.container</b></li>
+    <li>IP Address: <b>@Model.ip</b></li>
+    <li>Operating system: <b>@Model.os</b></li>
+    <li>Processors: <b>@Model.procs (@Model.arch)</b></li>
+    <li>Framework: <b>@Model.framework</b></li>
 </ul>
