@@ -10,7 +10,7 @@ Some minor cosmetic modifications to the basic templated app, but otherwise it's
 
 Two versions of the Dockerfile are provided.
 
- * [**Dockerfile**](Dockerfile) - Default, assumes the app has already been compiled and published into binaries, in a sub directory named 'pub/' (e.g. with dotnet publish -o pub) prior to running "docker build". Typically used in conjunction with VSTS build tasks
+ * [**Dockerfile**](Dockerfile) - Default, assumes the app has already been published into binaries, into a sub directory named './pub' (e.g. with dotnet publish -o pub) prior to running "docker build". Typically used in conjunction with VSTS build tasks
  * [**Dockerfile.build**](Dockerfile.build) - This carries out the full .NET Core restore, build & publish steps as part of the build of the Docker image. This is done with a different source image 'aspnetcore-build' and two RUN commands invoked in the Dockerfile. This is handy to use when you don't have a build server or a system without the SDK available
 
 ## Updates
