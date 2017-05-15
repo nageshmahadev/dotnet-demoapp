@@ -25,6 +25,8 @@ namespace DotnetDemoApp
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddApplicationInsightsTelemetry(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +53,7 @@ namespace DotnetDemoApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            
         }
     }
 }
