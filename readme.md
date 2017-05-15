@@ -2,7 +2,8 @@
 
 Based on the standard .NET Core template (`dotnet new mvc`). Kestrel is set to listen on 0.0.0.0:5000. This makes it possible to be run inside a container.
 
-Some minor cosmetic modifications to the basic templated app, but otherwise it's pretty much as it comes. The 'About' page should display some system information (OS, platform, IP address etc)
+Some minor cosmetic modifications have been to the basic generated app, but otherwise it's pretty much as it comes. The 'About' page displays some system basic information (OS, platform, IP address etc)  
+The other addition is the inclusion of the App Insights SDK, so if configured with an instrumentation key, monitoring data can be gathered and sent to Application Insights
 
 <img src="https://cloud.githubusercontent.com/assets/14982936/23825441/d116c230-0681-11e7-81a8-4c2daf7edd14.png" alt="screenshot" style="width: 800px;"/>
 
