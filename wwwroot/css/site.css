@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background: url(../images/background.png) no-repeat center center fixed;
+    background: url(../images/background.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -36,4 +36,26 @@ textarea {
     .carousel-caption {
         display: none;
     }
+}
+
+.sysinfo-box {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 30px;
+    color: white;
+    font-size: 1.2em;
+}
+.sysinfo-box table {
+    background-color: rgba(0, 0, 0, 0.0);
+}
+.sysinfo-box td {
+    padding: 5px;
+    color: white;
+    font-size: 1.2em;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }

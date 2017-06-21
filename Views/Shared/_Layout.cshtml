@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="images/success.png" />
+    <link rel="icon" type="image/png" href="/images/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Demo App</title>
 
@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="~/css/slate/bootstrap.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
 
     @Html.Raw(snippet.FullScript)
@@ -29,9 +29,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>  About</a></li>
+                    <!-- <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li> -->
                 </ul>
             </div>
         </div>
@@ -41,7 +41,8 @@
         <hr />
         <footer>
             <p>&copy; 2017 - Ben Coleman</p>
-            <span class="pull-right">Build: v2.29-03-2017</span>
+            <span class="pull-right">v @Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application.ApplicationVersion
+            </span>
         </footer>
     </div>
 
