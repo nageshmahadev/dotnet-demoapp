@@ -51,6 +51,7 @@ textarea {
     padding: 5px;
     color: white;
     font-size: 1.2em;
+    padding-right: 25px;
 }
 
 @font-face {
@@ -58,4 +59,8 @@ textarea {
 
     src: url('../fonts/glyphicons-halflings-regular.eot');
     src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.transp {
+    background-color: rgba(0, 0, 0, 0.5) !important;
 }
