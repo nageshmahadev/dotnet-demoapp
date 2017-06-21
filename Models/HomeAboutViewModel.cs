@@ -9,5 +9,6 @@ namespace DotnetDemoApp.ViewModels
       public string arch { get; set; }
       public string framework { get; set; }
       public string ip { get; set; }
+      public string mem { get; set; }
    }
 }
