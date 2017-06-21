@@ -29,6 +29,9 @@ bld/
 #wwwroot/
 #wwwroot/lib
 
+# VSCode junk
+.vscode/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
