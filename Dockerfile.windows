@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore:1.1.2
+FROM microsoft/aspnetcore:1.1.2-nanoserver
 MAINTAINER Ben Coleman
 WORKDIR /app
 
@@ -7,7 +7,7 @@ EXPOSE 5000
 
 # Copy already published binaries (dotnet publish)
 COPY pub .
-RUN touch .insidedocker
+RUN echo $null >> .insidedocker
 
 # Run the ASP.NET Core app
 ENTRYPOINT dotnet dotnet-demoapp.dll

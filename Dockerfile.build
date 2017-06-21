@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:1.1.1
+FROM microsoft/aspnetcore-build:1.1.2
 MAINTAINER Ben Coleman
 WORKDIR /app
 
@@ -14,6 +14,7 @@ RUN dotnet restore
 
 # Build & publish
 RUN dotnet publish --output pub --configuration Release
+RUN touch pub/.insidedocker
 
 # Run the published ASP.NET Core app
 ENTRYPOINT ["dotnet", "pub/dotnet-demoapp.dll"] 
