@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using DotnetDemoApp.ViewModels;
+using System.Linq;
 
 namespace DotnetDemoApp.Controllers
 {
@@ -28,6 +29,15 @@ namespace DotnetDemoApp.Controllers
             var httpConnectionFeature = this.ControllerContext.HttpContext.Features.Get<IHttpConnectionFeature>();
             model.ip = httpConnectionFeature?.LocalIpAddress.ToString();
 
+            // Harvest a few "interesting" environmental vars which may or may not be present
+            var env = Environment.GetEnvironmentVariables().GetEnumerator();
+            string[] interesting_envs = {"PROCESSOR_IDENTIFIER", "MACHTYPE", "DOTNET_VERSION", "HOSTTYPE", "PROCESSOR_ARCHITECTURE"};
+            while (env.MoveNext()) {
+                if(interesting_envs.Any(s=>env.Key.ToString().Contains(s))) {
+                    model.envs.Add(env.Key.ToString(), env.Value.ToString());
+                }
+            } 
+            
             return View(model);
         }
 

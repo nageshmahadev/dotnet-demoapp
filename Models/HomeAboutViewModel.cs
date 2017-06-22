@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace DotnetDemoApp.ViewModels
 {
    public class HomeAboutViewModel
@@ -10,5 +12,6 @@ namespace DotnetDemoApp.ViewModels
       public string framework { get; set; }
       public string ip { get; set; }
       public string mem { get; set; }
+      public Dictionary<string, string> envs = new Dictionary<string, string>();
    }
 }

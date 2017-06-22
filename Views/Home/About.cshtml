@@ -15,5 +15,8 @@
         <tr><td><span class="glyphicon glyphicon-flash" aria-hidden="true"></span>&nbsp;  Processors:</td><td>@Model.procs (@Model.arch)</td></tr>
         <tr><td><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>&nbsp;  Memory:</td><td>@Model.mem GB</td></tr>                        
         <tr><td><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;  Framework:</td><td>@Model.framework</td></tr>                        
+        @foreach (var key in Model.envs.Keys) {
+            <tr><td><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>&nbsp;  @key:</td><td>@Model.envs[key]</td></tr>    
+        }                    
     </table>
 </div>
