@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:1.1.2
+FROM microsoft/aspnetcore-build:2.0.0
 MAINTAINER Ben Coleman
 WORKDIR /app
 
@@ -7,14 +7,13 @@ EXPOSE 5000
 
 # Copy whole project, remove any old binaries and run a restore 
 COPY . .
-RUN rm -rf obj/
-RUN rm -rf bin/
-RUN rm -rf pub/
+RUN rm -rf obj/; rm -rf bin/; rm -rf pub/
 RUN dotnet restore
 
 # Build & publish
-RUN dotnet publish --output pub --configuration Release
-RUN touch pub/.insidedocker
+RUN dotnet publish --configuration Release
+# Flag file to indicate to code at runtime it is inside a container
+RUN touch .insidedocker
 
 # Run the published ASP.NET Core app
-ENTRYPOINT ["dotnet", "pub/dotnet-demoapp.dll"] 
+ENTRYPOINT ["dotnet", "bin/Release/netcoreapp2.0/publish/dotnet-demoapp.dll"] 
