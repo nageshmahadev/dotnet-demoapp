@@ -7,7 +7,7 @@ ARG publish_out=bin/Release/netcoreapp2.0/publish
 EXPOSE 5000
 
 # Copy already published binaries (dotnet publish)
-COPY $publish .
+COPY $publish_out .
 
 # Flag file to indicate to code at runtime it is inside a container
 RUN touch .insidedocker
