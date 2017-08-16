@@ -6,7 +6,7 @@
 
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using Microsoft.AspNetCore.Http.Features;
-@using DotnetDemoApp.ViewModels;
+
 @using System.Linq;
 @using System.Diagnostics;
 
@@ -57,7 +57,7 @@
         <tr><td><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;  IP Address:</td><td>@Model.ip</td></tr>
         <tr><td><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;  Operating system:</td><td>@Model.os</td></tr>
         <tr><td><span class="glyphicon glyphicon-flash" aria-hidden="true"></span>&nbsp;  Processors:</td><td>@Model.procs (@Model.arch)</td></tr>
-        <tr><td><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>&nbsp;  Memory:</td><td>@Model.mem GB</td></tr>                        
+        <tr><td><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>&nbsp;  Memory:</td><td>@Model.mem GB (estimate, probably wrong!)</td></tr>                        
         <tr><td><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;  Framework:</td><td>@Model.framework</td></tr>                        
         @foreach (var key in Model.envs.Keys) {
             <tr><td><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>&nbsp;  @key:</td><td>@Model.envs[key]</td></tr>    
