@@ -1,0 +1,35 @@
+@page "{iters:int?}"
+@{
+    ViewData["Title"] = "Stress Test";
+}
+@model StressModel
+
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using System.Diagnostics;
+
+@functions {
+   public class StressModel : PageModel
+   {
+      public double num { get; set; }
+      public long loops { get; set; }
+      
+      public void OnGet(int iters)
+      {
+         Stopwatch sw = new System.Diagnostics.Stopwatch();
+         sw.Start();
+         loops = 8000000;  // Default is 8 million, takes less than a second on my machine
+         if(iters > 0) loops = iters;
+         for(var i = 0; i <= loops; i++) {
+            Math.Pow(7000, 8000);
+         }
+         num = sw.ElapsedMilliseconds / 1000.0;
+      }
+   }
+}
+
+<h2><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> @ViewData["Title"]</h2>
+
+<div class="jumbotron transp sysinfo-box">
+    <h3>Loaded CPU by calculating a really big number @Model.loops times in @Model.num seconds!</h3>
+    <br/><small>Hint. Pass a number on the URL e.g. <tt>/Stress/9000000</tt> for more or less iterations </small>
+</div>
