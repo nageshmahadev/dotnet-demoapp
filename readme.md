@@ -1,8 +1,10 @@
 ## Simple .NET Core ASP web application
 
-Based on the standard .NET Core 2.0 template (`dotnet new mvc`). Kestrel is set to listen on 0.0.0.0:5000. This makes it possible to be run inside a container.
+Based on the standard .NET Core 2.0 template (`dotnet new`). Kestrel is set to listen on `http://0.0.0.0:5000`. This makes it possible to be run inside a container. Uses Razor Pages instead of MVC
 
-Some minor cosmetic modifications have been to the basic generated app, but otherwise it's pretty much as it comes. The 'About' page displays some system basic information (OS, platform, IP address etc) and should detect if the app is running as a container or not.
+Some minor cosmetic modifications have been to the basic generated app, but otherwise it's pretty much as it comes. The 'About' page displays some system basic information (OS, platform, IP address etc) and should detect if the app is running as a container or not.  
+The 'Stress' page will generate CPU load.  
+
 The other addition is the inclusion of the App Insights SDK, so if configured with an instrumentation key, monitoring data can be gathered and sent to Application Insights
 
 <img src="https://user-images.githubusercontent.com/14982936/27382739-115620fe-5680-11e7-9cf9-0e1ff845cad7.png" alt="screenshot" style="width: 800px;"/>
