@@ -1,9 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Error";
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error!";
 }
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+@using System.Diagnostics;
 
-<h1 class="text-danger">Error.</h1>
+@functions {
+    public class ErrorModel : PageModel
+    {
+        public string RequestId { get; set; }
+
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+        public void OnGet()
+        {
+            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+        }
+    }
+}
+<h1 class="text-danger">A Bad Thing Happened</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
 
 <h3>Development Mode</h3>
 <p>
