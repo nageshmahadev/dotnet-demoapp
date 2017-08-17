@@ -10,7 +10,7 @@
       public void OnGet()
       {
         var client = new HttpClient();
-        var resp1 = client.GetAsync("https://functionstore2017.blob.core.windows.net/").Result;
+        var resp1 = client.GetAsync("https://functionstore2017.blob.core.windows.net/temp/setup-file.msi").Result;
         var resp2 = client.GetAsync("https://api.twitter.com/1.1/account/settings.json").Result;        
       }
 }
