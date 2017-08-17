@@ -3,7 +3,8 @@
 Based on the standard .NET Core 2.0 template (`dotnet new`). Kestrel is set to listen on `http://0.0.0.0:5000`. This makes it possible to be run inside a container. Uses Razor Pages instead of MVC
 
 Some minor cosmetic modifications have been to the basic generated app, but otherwise it's pretty much as it comes. The 'About' page displays some system basic information (OS, platform, IP address etc) and should detect if the app is running as a container or not.  
-The 'Stress' page will generate CPU load.  
+- The 'Stress' page will generate CPU load.
+- The 'DepCall' page will make a server side HTTP call, to test/demonstrate dependency calls in Application Insights
 
 The other addition is the inclusion of the App Insights SDK, so if configured with an instrumentation key, monitoring data can be gathered and sent to Application Insights
 

@@ -1,0 +1,28 @@
+@page
+@{
+    ViewData["Title"] = "Dependency Test";
+}
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@using System.Net;
+@using System.Net.Http;
+
+@functions {
+    public string url { get; set; }
+    
+    public async Task OnGetAsync()
+    {
+        if(HttpContext.Request.Query.ContainsKey("url")) {
+            url = HttpContext.Request.Query["url"];
+            var client = new HttpClient();
+            var resp = await client.GetAsync(url);            
+        } else {
+            url = "[provide url on query, e.g. ?url=http://foobar.com/thing]";
+        }
+    }
+}
+
+<h2><span class="glyphicon glyphicon-random" aria-hidden="true"></span>&nbsp; @ViewData["Title"]</h2>
+
+<div class="jumbotron transp sysinfo-box">
+    <h3>Made async backend HTTP GET call to: @url</h3>
+</div>
