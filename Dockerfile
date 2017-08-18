@@ -1,7 +1,7 @@
 FROM microsoft/aspnetcore:2.0.0
 MAINTAINER Ben Coleman
 WORKDIR /app
-ARG publish_out=bin/Release/netcoreapp2.0/publish
+ARG publish_out=bin/release/netcoreapp2.0/publish
 
 # Expose port 5000 on Kestrel webserver
 EXPOSE 5000
