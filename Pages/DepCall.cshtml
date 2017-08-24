@@ -1,6 +1,6 @@
 @page
 @{
-    ViewData["Title"] = "Dependency Test";
+    ViewData["Title"] = "HTTP Dependency Test";
 }
 @using Microsoft.AspNetCore.Mvc.RazorPages
 @using System.Net;
@@ -8,15 +8,18 @@
 
 @functions {
     public string url { get; set; }
+    public string code { get; set; }
     
     public async Task OnGetAsync()
     {
         if(HttpContext.Request.Query.ContainsKey("url")) {
             url = HttpContext.Request.Query["url"];
+            if(url == "") return;
             var client = new HttpClient();
-            var resp = await client.GetAsync(url);            
+            var resp = await client.GetAsync(url);       
+            code = resp.StatusCode.ToString();
         } else {
-            url = "[provide url on query, e.g. ?url=http://foobar.com/thing]";
+            url = "";
         }
     }
 }
@@ -24,5 +27,11 @@
 <h2><span class="glyphicon glyphicon-random" aria-hidden="true"></span>&nbsp; @ViewData["Title"]</h2>
 
 <div class="jumbotron transp sysinfo-box">
-    <h3>Made async backend HTTP GET call to: @url</h3>
+    @if(@url != "") { <h3>Made server side async HTTP GET to...</h3> <pre style="font-size: 1.3em; background-color: #222222; color:#dddddd">@url [@code]</pre> }
+    <hr/>
+    <form action="">
+        <label for="iters">URL to call: </label>
+        <input name='url' id='url' type="url" value="@url"/>
+        <button type="submit" class="btn btn-primary">Go!</button>
+    </form>    
 </div>

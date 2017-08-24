@@ -10,19 +10,22 @@
 @functions {
    public class StressModel : PageModel
    {
-      public double num { get; set; }
+      public double time { get; set; }
       public long loops { get; set; }
+      private const double pow_base = 9000000000;
+      private const double pow_exponent = 9000000000;
+      private const long default_loops = 8000000;
       
       public void OnGet(int iters)
       {
          Stopwatch sw = new System.Diagnostics.Stopwatch();
          sw.Start();
-         loops = 8000000;  // Default is 8 million, takes less than a second on my machine
+         loops = default_loops;  // Default is 8 million, takes less than a second on my machine
          if(iters > 0) loops = iters;
          for(var i = 0; i <= loops; i++) {
-            Math.Pow(7000, 8000);
+            Math.Pow(pow_base, pow_exponent);
          }
-         num = sw.ElapsedMilliseconds / 1000.0;
+         time = sw.ElapsedMilliseconds / 1000.0;
       }
    }
 }
@@ -30,6 +33,11 @@
 <h2><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> @ViewData["Title"]</h2>
 
 <div class="jumbotron transp sysinfo-box">
-    <h3>Loaded CPU by calculating a really big number @Model.loops times in @Model.num seconds!</h3>
-    <br/><small>Hint. Pass a number on the URL e.g. <tt>/Stress/9000000</tt> for more or less iterations </small>
+    <h3>Loaded CPU by calculating a really big number @Model.loops times in @Model.time seconds!</h3>
+    <hr/>
+    <form>
+        <label for="iters">Number of iterations: </label>
+        <input name='iters' id='iters' type="number" value="@Model.loops"/>
+        <button type="button" class="btn btn-primary">Go!</button>
+    </form>
 </div>
