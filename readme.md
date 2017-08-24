@@ -2,8 +2,8 @@
 
 Based on the standard .NET Core 2.0 template (`dotnet new`), but further modified and jazzed up a little. The app was recently updated to use Razor Pages rather than MVC, which fits the simple demo app use case better.
 
-Features above the standard template:
-- The *'About'* page displays some system basic information (OS, platform, IP address etc) and should detect if the app is running as a container or not. 
+Features added on top of the standard template:
+- The *'About'* page displays some system basic information (OS, platform, CPUs, IP address etc) and should detect if the app is running as a container or not. 
 - The *'Stress'* page will generate CPU load, useful for testing autoscaling.
 - The *'DepCall'* page will let you make a server side HTTP call, useful to demonstrate dependency calls in Application Insights
 - The App Insights SDK has been included, so if configured with an instrumentation key, monitoring data can be gathered and sent to Application Insights
