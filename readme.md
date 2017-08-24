@@ -8,7 +8,7 @@ Some minor cosmetic modifications have been to the basic generated app, but othe
 
 The other addition is the inclusion of the App Insights SDK, so if configured with an instrumentation key, monitoring data can be gathered and sent to Application Insights
 
-<img src="https://user-images.githubusercontent.com/14982936/27382739-115620fe-5680-11e7-9cf9-0e1ff845cad7.png" alt="screenshot" style="width: 800px;"/>
+<img src="https://user-images.githubusercontent.com/14982936/29657856-e82f4440-88b0-11e7-8575-dbbdf3edede5.png" alt="screenshot" style="width: 800px;"/>
 
 ## Dockerfile Notes
 Three versions of the Dockerfile are provided.
