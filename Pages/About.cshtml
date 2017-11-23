@@ -38,9 +38,9 @@
 
             // Harvest a few "interesting" environmental vars which may or may not be present
             var env = Environment.GetEnvironmentVariables().GetEnumerator();
-            string[] interesting_envs = {"PROCESSOR_IDENTIFIER", "MACHTYPE", "DOTNET_VERSION", "HOSTTYPE", "PROCESSOR_ARCHITECTURE"};
+            string[] interesting_envs = {"PROCESSOR_IDENTIFIER", "MACHTYPE", "DOTNET_VERSION", "HOSTTYPE", "PROCESSOR_ARCHITECTURE", "RELEASE"};
             while (env.MoveNext()) {
-                if(interesting_envs.Any(s=>env.Key.ToString().Contains(s))) {
+                if(interesting_envs.Any(s=>env.Key.ToString().Equals(s))) {
                     envs.Add(env.Key.ToString(), env.Value.ToString());
                 }
             } 
