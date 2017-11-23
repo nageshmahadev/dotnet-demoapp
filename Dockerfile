@@ -16,6 +16,7 @@ RUN dotnet publish --configuration Release
 
 FROM microsoft/aspnetcore:2.0.3
 LABEL author="Ben Coleman"
+LABEL version="3.1"
 WORKDIR /app
 ARG publish_out=build/bin/Release/netcoreapp2.0/publish
 
