@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:2.0.3 as build
+FROM microsoft/aspnetcore-build:2.0.6 as build
 WORKDIR /build
 
 # Copy project source files
@@ -14,9 +14,9 @@ RUN dotnet publish --configuration Release
 
 ####################################################################################
 
-FROM microsoft/aspnetcore:2.0.3
+FROM microsoft/aspnetcore:2.0.6
 LABEL author="Ben Coleman"
-LABEL version="3.1"
+LABEL version="3.2"
 WORKDIR /app
 ARG publish_out=build/bin/Release/netcoreapp2.0/publish
 
