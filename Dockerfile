@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:2.0.6 as build
+FROM microsoft/aspnetcore-build:2.0.6-2.1.101 as build
 WORKDIR /build
 
 # Copy project source files
