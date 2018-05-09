@@ -12,7 +12,7 @@ COPY *.csproj ./
 RUN dotnet restore
 RUN dotnet publish --configuration Release
 
-###########################################
+################################################
 
 FROM microsoft/aspnetcore:2.0.6
 LABEL author="Ben Coleman"
