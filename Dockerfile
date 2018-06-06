@@ -1,4 +1,4 @@
-FROM microsoft/aspnetcore-build:2.0.6-2.1.101 as build
+FROM microsoft/dotnet:2.1-sdk as build
 WORKDIR /build
 
 # Copy project source files
@@ -14,11 +14,11 @@ RUN dotnet publish --configuration Release
 
 ##################################################
 
-FROM microsoft/aspnetcore:2.0.6
+FROM microsoft/dotnet:2.1-aspnetcore-runtime
 LABEL author="Ben Coleman"
-LABEL version="3.2"
+LABEL version="3.5"
 WORKDIR /app
-ARG publish_out=build/bin/Release/netcoreapp2.0/publish
+ARG publish_out=build/bin/Release/netcoreapp2.1/publish
 
 # Expose port 5000 on Kestrel webserver
 EXPOSE 5000

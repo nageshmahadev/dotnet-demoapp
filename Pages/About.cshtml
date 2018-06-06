@@ -9,6 +9,7 @@
 
 @using System.Linq;
 @using System.Diagnostics;
+@using System.Runtime.Versioning;
 
 @functions {
     public class SysDetailsModel : PageModel
@@ -30,7 +31,8 @@
             os = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
             procs = Environment.ProcessorCount.ToString();
             arch = System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture.ToString();
-            framework = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+            framework = "Unknown";
+            framework = Assembly.GetEntryAssembly()?.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
             mem = (System.Diagnostics.Process.GetCurrentProcess().VirtualMemorySize64 / (1024*1024*1024)).ToString();
 
             var httpConnectionFeature = HttpContext.Features.Get<IHttpConnectionFeature>();
