@@ -29,5 +29,8 @@ COPY --from=build $publish_out .
 # Flag file to indicate to code at runtime it is inside a container
 RUN touch .insidedocker
 
+# Enable App Insights profiler
+ENV ASPNETCORE_HOSTINGSTARTUPASSEMBLIES Microsoft.ApplicationInsights.Profiler.AspNetCore
+
 # Run the ASP.NET Core app
 ENTRYPOINT dotnet dotnet-demoapp.dll
