@@ -16,7 +16,7 @@ RUN dotnet publish --configuration Release
 
 FROM microsoft/dotnet:2.1-aspnetcore-runtime
 LABEL author="Ben Coleman"
-LABEL version="3.5"
+LABEL version="3.5.3"
 WORKDIR /app
 ARG publish_out=build/bin/Release/netcoreapp2.1/publish
 
