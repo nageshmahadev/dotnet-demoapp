@@ -1,0 +1,3 @@
+# Ignore!!
+# This is just a flag file used by the app to work out
+# if it running in a container, only used by Windows containers

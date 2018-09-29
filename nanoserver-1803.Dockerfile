@@ -2,8 +2,8 @@
 # Stage 1 - build and publish app
 # =======================================================
 
-# Build image has SDK and tools (Linux)
-FROM microsoft/dotnet:2.1-sdk as build
+# Build image has SDK and tools (Windows Nano Server 1803)
+FROM microsoft/dotnet:2.1-sdk-nanoserver-1803 as build
 WORKDIR /build
 
 # Copy project source files
@@ -21,8 +21,8 @@ RUN dotnet publish --no-restore --configuration Release
 # Stage 2 - assemble production image from build output
 # =======================================================
 
-# Base image is .NET Core runtime only (Linux)
-FROM microsoft/dotnet:2.1-aspnetcore-runtime
+# Base image is .NET Core runtime only (Windows Nano Server 1803)
+FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-1803
 
 # Metadata in Label Schema format (http://label-schema.org)
 LABEL org.label-schema.name    = ".NET Core Demo Web App" \
@@ -35,6 +35,9 @@ WORKDIR /app
 
 # Copy already published binaries (from build stage image)
 COPY --from=build /build/bin/Release/netcoreapp2.1/publish .
+
+# Flag file to indicate to code at runtime it is inside a container
+COPY .insidedocker .
 
 # Enable App Insights profiler
 ENV ASPNETCORE_HOSTINGSTARTUPASSEMBLIES Microsoft.ApplicationInsights.Profiler.AspNetCore

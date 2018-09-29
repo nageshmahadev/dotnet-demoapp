@@ -10,3 +10,4 @@ LICENSE
 .vscode
 bin/*
 obj/*
+azure-deploy
