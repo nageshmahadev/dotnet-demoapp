@@ -1,5 +1,5 @@
 # =======================================================
-# Stage 1 - build and publish app
+# Stage 1 - Build/compile app using container
 # =======================================================
 
 # Build image has SDK and tools (Windows Nano Server 1803)
@@ -18,7 +18,7 @@ RUN dotnet restore
 RUN dotnet publish --no-restore --configuration Release
 
 # =======================================================
-# Stage 2 - assemble production image from build output
+# Stage 2 - Assemble runtime image from previous stage
 # =======================================================
 
 # Base image is .NET Core runtime only (Windows Nano Server 1803)
