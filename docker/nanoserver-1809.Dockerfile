@@ -2,8 +2,8 @@
 # Stage 1 - Build/compile app using container
 # =======================================================
 
-# Build image has SDK and tools (Windows Nano Server 1709)
-FROM microsoft/dotnet:2.1-sdk-nanoserver-1709 as build
+# Build image has SDK and tools (Windows Nano Server 1803)
+FROM microsoft/dotnet:2.1-sdk-nanoserver-1809 as build
 WORKDIR /build
 
 # Copy project source files
@@ -21,8 +21,8 @@ RUN dotnet publish --no-restore --configuration Release
 # Stage 2 - Assemble runtime image from previous stage
 # =======================================================
 
-# Base image is .NET Core runtime only (Windows Nano Server 1709)
-FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-1709
+# Base image is .NET Core runtime only (Windows Nano Server 1803)
+FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-1809
 
 # Metadata in Label Schema format (http://label-schema.org)
 LABEL org.label-schema.name    = ".NET Core Demo Web App" \
