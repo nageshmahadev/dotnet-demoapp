@@ -1,5 +1,5 @@
 #
-# Azure Pipeline - Build defintion for demo web apps
+# Azure Pipeline - Build defintion for Dotnet Core Demo app (Linux & Windows)
 # Build as Docker container image and push to ACR, also push to public Dockerhub
 # Ben C, 2019
 #
@@ -18,7 +18,7 @@ variables:
     
 jobs:
   # ==================================================================
-  # Job 21 - Build Image using Alpine Linux
+  # Job 1 - Build Image using Alpine Linux
   # ==================================================================  
   - job: build_linux_image
     variables:
